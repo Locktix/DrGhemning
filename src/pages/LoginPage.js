@@ -5,6 +5,7 @@ import { auth } from "../firebase/firebaseConfig";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import CustomSnackbar from "../components/CustomSnackbar";
 
 function LoginPage() {
   const [tab, setTab] = useState(0);
@@ -12,6 +13,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "success" });
   const navigate = useNavigate();
 
   const handleTabChange = (event, newValue) => {
@@ -25,15 +27,16 @@ function LoginPage() {
     setLoading(true);
     try {
       if (tab === 0) {
-        // Connexion
         await signInWithEmailAndPassword(auth, email, password);
+        setSnackbar({ open: true, message: "Connexion réussie !", severity: "success" });
       } else {
-        // Inscription
         await createUserWithEmailAndPassword(auth, email, password);
+        setSnackbar({ open: true, message: "Inscription réussie !", severity: "success" });
       }
-      navigate("/");
+      setTimeout(() => navigate("/"), 800);
     } catch (err) {
       setError(err.message);
+      setSnackbar({ open: true, message: err.message, severity: "error" });
     } finally {
       setLoading(false);
     }
@@ -41,6 +44,7 @@ function LoginPage() {
 
   return (
     <Container maxWidth="sm" sx={{ mt: 10 }}>
+      <CustomSnackbar open={snackbar.open} onClose={() => setSnackbar({ ...snackbar, open: false })} message={snackbar.message} severity={snackbar.severity} />
       <Paper elevation={0} sx={{
         p: { xs: 2, md: 4 },
         borderRadius: 4,

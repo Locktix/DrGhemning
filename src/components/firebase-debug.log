@@ -1,0 +1,104 @@
+[debug] [2025-07-14T22:56:14.173Z] ----------------------------------------------------------------------
+[debug] [2025-07-14T22:56:14.177Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alanp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-07-14T22:56:14.178Z] CLI Version:   14.10.1
+[debug] [2025-07-14T22:56:14.178Z] Platform:      win32
+[debug] [2025-07-14T22:56:14.179Z] Node Version:  v22.17.0
+[debug] [2025-07-14T22:56:14.179Z] Time:          Tue Jul 15 2025 00:56:14 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2025-07-14T22:56:14.179Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-14T22:56:14.187Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-14T22:56:14.187Z] > authorizing via signed-in user (alanplokain@hotmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\alanp\Documents\GitHub\DrGhemning\src\components
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-07-14T22:56:43.775Z] Checked if tokens are valid: false, expires at: 1752516464100
+[debug] [2025-07-14T22:56:43.775Z] Checked if tokens are valid: false, expires at: 1752516464100
+[debug] [2025-07-14T22:56:43.775Z] > refreshing access token with scopes: []
+[debug] [2025-07-14T22:56:43.784Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-07-14T22:56:43.785Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-14T22:56:43.955Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-07-14T22:56:43.955Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-14T22:56:43.968Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-07-14T22:56:44.508Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-07-14T22:56:44.508Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2025-07-14T22:57:09.123Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\alanp\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:518:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1132:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:271:20)
+    at ReadStream.emit (node:events:530:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-07-14T22:57:15.274Z] ----------------------------------------------------------------------
+[debug] [2025-07-14T22:57:15.279Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alanp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-07-14T22:57:15.279Z] CLI Version:   14.10.1
+[debug] [2025-07-14T22:57:15.280Z] Platform:      win32
+[debug] [2025-07-14T22:57:15.280Z] Node Version:  v22.17.0
+[debug] [2025-07-14T22:57:15.281Z] Time:          Tue Jul 15 2025 00:57:15 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2025-07-14T22:57:15.281Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-14T22:57:15.289Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-14T22:57:15.289Z] > authorizing via signed-in user (alanplokain@hotmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\alanp\Documents\GitHub\DrGhemning\src\components
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2025-07-14T22:57:32.314Z] Checked if tokens are valid: true, expires at: 1752537402955
+[debug] [2025-07-14T22:57:32.315Z] Checked if tokens are valid: true, expires at: 1752537402955
+[debug] [2025-07-14T22:57:32.324Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-07-14T22:57:32.324Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"DrGhemning"}
+[debug] [2025-07-14T22:57:32.791Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-07-14T22:57:32.791Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_NOT_VALID","suggestedProjectId":"drghemning-f04b0"}
+[debug] [2025-07-14T22:57:42.759Z] Checked if tokens are valid: true, expires at: 1752537402955
+[debug] [2025-07-14T22:57:42.759Z] Checked if tokens are valid: true, expires at: 1752537402955
+[debug] [2025-07-14T22:57:42.760Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-07-14T22:57:42.761Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"drghemning"}
+[debug] [2025-07-14T22:57:43.193Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-07-14T22:57:43.193Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_UNAVAILABLE","suggestedProjectId":"drghemning-fcf41"}
+[debug] [2025-07-14T22:59:38.449Z] Checked if tokens are valid: true, expires at: 1752537402955
+[debug] [2025-07-14T22:59:38.449Z] Checked if tokens are valid: true, expires at: 1752537402955
+[debug] [2025-07-14T22:59:38.450Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-07-14T22:59:38.450Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"DrGhemning"}
+[debug] [2025-07-14T22:59:38.901Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-07-14T22:59:38.902Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_NOT_VALID","suggestedProjectId":"drghemning-b266b"}
+[debug] [2025-07-14T22:59:47.102Z] Checked if tokens are valid: true, expires at: 1752537402955
+[debug] [2025-07-14T22:59:47.102Z] Checked if tokens are valid: true, expires at: 1752537402955
+[debug] [2025-07-14T22:59:47.103Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-07-14T22:59:47.103Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"drghemning"}
+[debug] [2025-07-14T22:59:47.492Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-07-14T22:59:47.492Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_UNAVAILABLE","suggestedProjectId":"drghemning-8bd70"}

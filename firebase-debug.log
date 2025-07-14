@@ -1,0 +1,88 @@
+[debug] [2025-07-14T23:23:43.851Z] ----------------------------------------------------------------------
+[debug] [2025-07-14T23:23:43.856Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alanp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2025-07-14T23:23:43.856Z] CLI Version:   14.10.1
+[debug] [2025-07-14T23:23:43.856Z] Platform:      win32
+[debug] [2025-07-14T23:23:43.856Z] Node Version:  v22.17.0
+[debug] [2025-07-14T23:23:43.856Z] Time:          Tue Jul 15 2025 01:23:43 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2025-07-14T23:23:43.857Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-14T23:23:44.214Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-14T23:23:44.215Z] > authorizing via signed-in user (alanplokain@hotmail.com)
+[debug] [2025-07-14T23:23:44.215Z] [iam] checking project ghemning-bc91e for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-07-14T23:23:44.221Z] Checked if tokens are valid: true, expires at: 1752539012407
+[debug] [2025-07-14T23:23:44.221Z] Checked if tokens are valid: true, expires at: 1752539012407
+[debug] [2025-07-14T23:23:44.222Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ghemning-bc91e:testIamPermissions [none]
+[debug] [2025-07-14T23:23:44.223Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ghemning-bc91e:testIamPermissions x-goog-quota-user=projects/ghemning-bc91e
+[debug] [2025-07-14T23:23:44.223Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ghemning-bc91e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-07-14T23:23:44.934Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ghemning-bc91e:testIamPermissions 200
+[debug] [2025-07-14T23:23:44.934Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ghemning-bc91e:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-07-14T23:23:44.935Z] Checked if tokens are valid: true, expires at: 1752539012407
+[debug] [2025-07-14T23:23:44.935Z] Checked if tokens are valid: true, expires at: 1752539012407
+[debug] [2025-07-14T23:23:44.935Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ghemning-bc91e [none]
+[debug] [2025-07-14T23:24:14.938Z] *** [apiv2] error from fetch(https://firebase.googleapis.com/v1beta1/projects/ghemning-bc91e, {"headers":{},"method":"GET","signal":{}}): AbortError: The user aborted a request.
+[debug] [2025-07-14T23:24:14.938Z] Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/ghemning-bc91e (original: The user aborted a request.)
+[error] 
+[error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier
+[debug] [2025-07-14T23:24:30.969Z] ----------------------------------------------------------------------
+[debug] [2025-07-14T23:24:30.971Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alanp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting --project ghemning-bc91e
+[debug] [2025-07-14T23:24:30.972Z] CLI Version:   14.10.1
+[debug] [2025-07-14T23:24:30.972Z] Platform:      win32
+[debug] [2025-07-14T23:24:30.972Z] Node Version:  v22.17.0
+[debug] [2025-07-14T23:24:30.972Z] Time:          Tue Jul 15 2025 01:24:30 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2025-07-14T23:24:30.972Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-14T23:24:31.322Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-14T23:24:31.323Z] > authorizing via signed-in user (alanplokain@hotmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\alanp\Documents\GitHub\DrGhemning
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-07-14T23:24:41.203Z] Using project from CLI flag: ghemning-bc91e
+[debug] [2025-07-14T23:24:41.203Z] Checked if tokens are valid: true, expires at: 1752539012407
+[debug] [2025-07-14T23:24:41.204Z] Checked if tokens are valid: true, expires at: 1752539012407
+[debug] [2025-07-14T23:24:41.205Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ghemning-bc91e [none]
+[debug] [2025-07-14T23:25:11.216Z] *** [apiv2] error from fetch(https://firebase.googleapis.com/v1beta1/projects/ghemning-bc91e, {"headers":{},"method":"GET","signal":{}}): AbortError: The user aborted a request.
+[debug] [2025-07-14T23:25:11.216Z] Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/ghemning-bc91e (original: The user aborted a request.)
+[debug] [2025-07-14T23:25:11.286Z] FirebaseError: Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/ghemning-bc91e
+    at RetryOperation._fn (C:\Users\alanp\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:257:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project ghemning-bc91e. Please make sure the project exists and your account has permission to access it.
+[debug] [2025-07-14T23:25:24.264Z] ----------------------------------------------------------------------
+[debug] [2025-07-14T23:25:24.267Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\alanp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js projects:list
+[debug] [2025-07-14T23:25:24.267Z] CLI Version:   14.10.1
+[debug] [2025-07-14T23:25:24.268Z] Platform:      win32
+[debug] [2025-07-14T23:25:24.268Z] Node Version:  v22.17.0
+[debug] [2025-07-14T23:25:24.268Z] Time:          Tue Jul 15 2025 01:25:24 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2025-07-14T23:25:24.268Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-14T23:25:24.604Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-14T23:25:24.604Z] > authorizing via signed-in user (alanplokain@hotmail.com)
+[debug] [2025-07-14T23:25:24.609Z] Checked if tokens are valid: true, expires at: 1752539012407
+[debug] [2025-07-14T23:25:24.609Z] Checked if tokens are valid: true, expires at: 1752539012407
+[debug] [2025-07-14T23:25:24.610Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-07-14T23:25:54.618Z] *** [apiv2] error from fetch(https://firebase.googleapis.com/v1beta1/projects?pageSize=1000, {"headers":{},"method":"GET","signal":{}}): AbortError: The user aborted a request.
+[debug] [2025-07-14T23:25:54.618Z] Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects?pageSize=1000
+[debug] [2025-07-14T23:25:54.687Z] FirebaseError: Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects?pageSize=1000
+    at RetryOperation._fn (C:\Users\alanp\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:257:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.

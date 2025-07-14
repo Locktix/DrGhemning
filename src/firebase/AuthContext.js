@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth, db } from "./firebaseConfig";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, onSnapshot, setDoc } from "firebase/firestore";
 
 const AuthContext = createContext();
 
@@ -15,25 +15,28 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+    const unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
       if (firebaseUser) {
-        // Chercher le rôle dans Firestore
         const userRef = doc(db, "users", firebaseUser.uid);
-        const userSnap = await getDoc(userRef);
-        if (userSnap.exists()) {
-          setRole(userSnap.data().role);
-        } else {
-          // Si nouvel utilisateur, rôle par défaut "membre"
-          await setDoc(userRef, { email: firebaseUser.email, role: "membre" });
-          setRole("membre");
-        }
+        const unsubscribeRole = onSnapshot(userRef, (userSnap) => {
+          if (userSnap.exists()) {
+            setRole(userSnap.data().role);
+          } else {
+            setDoc(userRef, { email: firebaseUser.email, role: "membre" });
+            setRole("membre");
+          }
+          setLoading(false);
+        });
+        return unsubscribeRole;
       } else {
         setRole(null);
+        setLoading(false);
       }
-      setLoading(false);
     });
-    return unsubscribe;
+    return () => {
+      unsubscribeAuth();
+    };
   }, []);
 
   const logout = () => signOut(auth);
