@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinet Médical Dr Ghemning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-bg">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" style="position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:linear-gradient(135deg,#e3f0fa 0%,#fafdff 100%);display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;">
+            <div class="logo-circle" style="margin:auto;margin-bottom:18px;width:70px;height:70px;font-size:2.2em;background:#3498db;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 2px 12px rgba(52,152,219,0.15);">CG</div>
+            <div class="loader" style="border:7px solid #e3f0fa;border-top:7px solid #3498db;border-radius:50%;width:48px;height:48px;animation:spin 1s linear infinite;margin:auto;"></div>
+            <p style="margin-top:18px;font-size:1.1em;color:#3498db;font-weight:500;">Chargement du cabinet médical...</p>
+        </div>
+    </div>
+    <style>
+    @keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+    #loginScreen {
+        position:fixed;z-index:9998;top:0;left:0;width:100vw;height:100vh;
+        background:linear-gradient(135deg,#e3f0fa 0%,#fafdff 100%);
+        display:flex;align-items:center;justify-content:center;
+    }
+    #loginBox {
+        background:#fff;
+        padding:36px 28px 28px 28px;
+        border-radius:18px;
+        box-shadow:0 4px 32px rgba(52,152,219,0.10);
+        text-align:center;
+        min-width:320px;
+    }
+    #loginBox h2 {
+        color:#3498db;
+        margin-bottom:10px;
+        font-size:1.5em;
+        letter-spacing:1px;
+    }
+    #loginBox p {
+        color:#444;
+        margin-bottom:18px;
+    }
+    #loginBox input[type="password"] {
+        padding:10px 14px;
+        font-size:1.1em;
+        border-radius:8px;
+        border:1.5px solid #3498db;
+        margin-bottom:16px;
+        width:100%;
+        outline:none;
+        transition:border 0.2s;
+    }
+    #loginBox input[type="password"]:focus {
+        border:1.5px solid #217dbb;
+    }
+    #loginBox button {
+        padding:10px 28px;
+        font-size:1.1em;
+        border-radius:8px;
+        background:#3498db;
+        color:#fff;
+        border:none;
+        cursor:pointer;
+        font-weight:500;
+        box-shadow:0 2px 8px rgba(52,152,219,0.08);
+        transition:background 0.2s;
+    }
+    #loginBox button:hover {
+        background:#217dbb;
+    }
+    #loginError {
+        color:#c0392b;
+        margin-top:10px;
+        font-size:1em;
+    }
+    </style>
+    <!-- Login Screen -->
+    <div id="loginScreen" style="display:none;">
+        <div id="loginBox">
+            <div class="logo-circle" style="margin:auto;margin-bottom:10px;width:54px;height:54px;font-size:1.5em;background:#3498db;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 2px 12px rgba(52,152,219,0.10);">CG</div>
+            <h2>Connexion Cabinet</h2>
+            <p>Veuillez entrer le mot de passe pour accéder au site :</p>
+            <input type="password" id="loginPassword" placeholder="Mot de passe" autocomplete="current-password" />
+            <br>
+            <button id="loginBtn">Se connecter</button>
+            <div id="loginError"></div>
+        </div>
+    </div>
+    <header class="header-home">
+        <div class="logo-circle">CG</div>
+        <h1>Cabinet Médical Dr Ghemning</h1>
+    </header>
+    <main class="main-home">
+        <button class="btn-main" onclick="window.location.href='vaccins.html'">
+            <span class="icon-vaccine"></span> Vaccins
+        </button>
+    </main>
+    <footer class="footer-home">
+        <p>&copy; 2024 Cabinet Médical Dr Ghemning. Tous droits réservés.</p>
+    </footer>
+    <script>
+    // Loading screen
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.getElementById('loadingScreen').style.display = 'none';
+            // Auth check
+            if (localStorage.getItem('isAuthenticated') === 'true') {
+                document.getElementById('loginScreen').style.display = 'none';
+            } else {
+                document.getElementById('loginScreen').style.display = 'flex';
+            }
+        }, 1000);
+    });
+
+    // Login logic
+    document.getElementById('loginBtn').onclick = function() {
+        const pwd = document.getElementById('loginPassword').value;
+        if (pwd === '4031') {
+            localStorage.setItem('isAuthenticated', 'true');
+            document.getElementById('loginScreen').style.display = 'none';
+        } else {
+            document.getElementById('loginError').textContent = 'Mot de passe incorrect.';
+        }
+    };
+    </script>
+</body>
+</html> 
