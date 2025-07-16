@@ -7,7 +7,8 @@ import AdminPage from "./pages/AdminPage";
 import FileManagerPage from "./pages/FileManagerPage";
 import BloodTestSchedule from "./components/BloodTestSchedule";
 import { AuthProvider, useAuth } from "./firebase/AuthContext";
-import { Fade } from "@mui/material";
+import { Fade, Box } from "@mui/material";
+import Footer from "./components/Footer";
 
 function PrivateRoute({ children, allowedRoles }) {
   const { user, role, loading } = useAuth();
@@ -55,7 +56,14 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <AnimatedRoutes />
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          minHeight: '100vh' 
+        }}>
+          <AnimatedRoutes />
+          <Footer />
+        </Box>
       </Router>
     </AuthProvider>
   );
