@@ -5,6 +5,7 @@ import { useAuth } from "../firebase/AuthContext";
 import { useNavigate } from "react-router-dom";
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import FolderIcon from '@mui/icons-material/Folder';
 
 function HomePage() {
   const { role } = useAuth();
@@ -20,6 +21,15 @@ function HomePage() {
       action: () => navigate("/vaccins"),
       button: "Accéder",
       gradient: "linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)"
+    });
+    cards.push({
+      key: "fichiers",
+      title: "Gestionnaire de fichiers",
+      icon: <FolderIcon sx={{ fontSize: 48, color: '#8e24aa' }} />,
+      description: "Uploader, supprimer, éditer des fichiers et dossiers.",
+      action: () => navigate("/fichiers"),
+      button: "Accéder",
+      gradient: "linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%)"
     });
   }
   if (role === "dev") {
@@ -37,7 +47,7 @@ function HomePage() {
   return (
     <>
       <NavBar />
-      <Container maxWidth="md" sx={{ mt: 8 }}>
+      <Container maxWidth="lg" sx={{ mt: 8 }}>
         <Typography variant="h3" align="center" gutterBottom>
           Centre médical Du Dr Ghemning
         </Typography>
@@ -52,10 +62,10 @@ function HomePage() {
             </Alert>
           )}
         </Box>
-        <Grid container spacing={4} justifyContent="center" sx={{ mt: 2, px: { xs: 0, sm: 2, md: 4 } }}>
+        <Grid container spacing={4} justifyContent="center" alignItems="stretch" sx={{ mt: 2, px: { xs: 0, sm: 2, md: 4 } }}>
           {cards.map((card, i) => (
             <Grow in={true} timeout={500 + i * 200} key={card.key}>
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={12} sm={6} md={6} display="flex">
                 <Card
                   sx={{
                     minHeight: 260,

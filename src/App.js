@@ -4,6 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import VaccinsPage from "./pages/VaccinsPage";
 import AdminPage from "./pages/AdminPage";
+import FileManagerPage from "./pages/FileManagerPage";
 import { AuthProvider, useAuth } from "./firebase/AuthContext";
 import { Fade } from "@mui/material";
 
@@ -35,6 +36,11 @@ function AnimatedRoutes() {
           <Route path="/admin" element={
             <PrivateRoute allowedRoles={["dev"]}>
               <AdminPage />
+            </PrivateRoute>
+          } />
+          <Route path="/fichiers" element={
+            <PrivateRoute allowedRoles={["secrétaire", "médecin", "dev"]}>
+              <FileManagerPage />
             </PrivateRoute>
           } />
           <Route path="*" element={<Navigate to="/" />} />
