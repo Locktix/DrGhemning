@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/DrGhemning/static/css/main.59d0316f.css",
-    "main.js": "/DrGhemning/static/js/main.e16da1e8.js",
+    "main.js": "/DrGhemning/static/js/main.439486b3.js",
     "static/js/453.adf5e5fb.chunk.js": "/DrGhemning/static/js/453.adf5e5fb.chunk.js",
     "index.html": "/DrGhemning/index.html",
     "main.59d0316f.css.map": "/DrGhemning/static/css/main.59d0316f.css.map",
-    "main.e16da1e8.js.map": "/DrGhemning/static/js/main.e16da1e8.js.map",
+    "main.439486b3.js.map": "/DrGhemning/static/js/main.439486b3.js.map",
     "453.adf5e5fb.chunk.js.map": "/DrGhemning/static/js/453.adf5e5fb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.59d0316f.css",
-    "static/js/main.e16da1e8.js"
+    "static/js/main.439486b3.js"
   ]
 }
