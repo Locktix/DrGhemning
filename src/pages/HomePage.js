@@ -5,7 +5,7 @@ import { useAuth } from "../firebase/AuthContext";
 import { useNavigate } from "react-router-dom";
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import FolderIcon from '@mui/icons-material/Folder';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 function HomePage() {
   const { role } = useAuth();
@@ -23,13 +23,13 @@ function HomePage() {
       gradient: "linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)"
     });
     cards.push({
-      key: "fichiers",
-      title: "Gestionnaire de fichiers",
-      icon: <FolderIcon sx={{ fontSize: 48, color: '#8e24aa' }} />,
-      description: "Uploader, supprimer, éditer des fichiers et dossiers.",
-      action: () => navigate("/fichiers"),
+      key: "horaires",
+      title: "Horaires de prises de sang",
+      icon: <AccessTimeIcon sx={{ fontSize: 48, color: '#1976d2' }} />,
+      description: "Consulter et gérer les créneaux de prises de sang.",
+      action: () => navigate("/horaires"),
       button: "Accéder",
-      gradient: "linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%)"
+      gradient: "linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)"
     });
   }
   if (role === "dev") {
@@ -49,7 +49,7 @@ function HomePage() {
       <NavBar />
       <Container maxWidth="lg" sx={{ mt: 8 }}>
         <Typography variant="h3" align="center" gutterBottom>
-          Centre médical Du Dr Ghemning
+          Centre médical Dr Ghemning
         </Typography>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 6 }}>
           {role === "membre" && (

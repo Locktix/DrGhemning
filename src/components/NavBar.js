@@ -5,6 +5,7 @@ import { useAuth } from "../firebase/AuthContext";
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 function NavBar() {
   const { user, role, logout } = useAuth();
@@ -47,26 +48,45 @@ function NavBar() {
               fontSize: 24
             }}
           >
-            Centre médical Du Dr Ghemning
+            Centre médical Dr Ghemning
           </Typography>
           {role && ["secrétaire", "médecin", "dev"].includes(role) && (
-            <Button
-              color="primary"
-              component={Link}
-              to="/vaccins"
-              startIcon={<VaccinesIcon sx={{ fontSize: 28 }} />}
-              sx={{
-                mx: 1,
-                fontWeight: 600,
-                borderRadius: 2,
-                px: 2.5,
-                fontSize: 18,
-                transition: 'background 0.2s',
-                '&:hover': { bgcolor: 'rgba(25, 118, 210, 0.08)' }
-              }}
-            >
-              Vaccins
-            </Button>
+            <>
+              <Button
+                color="primary"
+                component={Link}
+                to="/vaccins"
+                startIcon={<VaccinesIcon sx={{ fontSize: 28 }} />}
+                sx={{
+                  mx: 1,
+                  fontWeight: 600,
+                  borderRadius: 2,
+                  px: 2.5,
+                  fontSize: 18,
+                  transition: 'background 0.2s',
+                  '&:hover': { bgcolor: 'rgba(25, 118, 210, 0.08)' }
+                }}
+              >
+                Vaccins
+              </Button>
+              <Button
+                color="primary"
+                component={Link}
+                to="/horaires"
+                startIcon={<AccessTimeIcon sx={{ fontSize: 28 }} />}
+                sx={{
+                  mx: 1,
+                  fontWeight: 600,
+                  borderRadius: 2,
+                  px: 2.5,
+                  fontSize: 18,
+                  transition: 'background 0.2s',
+                  '&:hover': { bgcolor: 'rgba(25, 118, 210, 0.08)' }
+                }}
+              >
+                Prise de sang
+              </Button>
+            </>
           )}
           {role === "dev" && (
             <Button
