@@ -11,3 +11,68 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Impression optimisée pour toutes les pages */
+@media print {
+  body {
+    background: white !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    zoom: 0.8 !important;
+  }
+
+  /* Masquer uniquement la NavBar et les barres d'action */
+  .MuiAppBar-root,
+  .MuiToolbar-root,
+  header,
+  nav {
+    display: none !important;
+  }
+
+  /* Centrer et limiter la largeur du contenu principal */
+  #root > div, .MuiContainer-root {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+
+  /* Afficher les titres principaux */
+  h3, h4, h5, h6 {
+    display: block !important;
+    color: #222 !important;
+    text-align: center !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+  }
+
+  /* Adapter la taille du tableau */
+  table {
+    width: 100% !important;
+    font-size: 11pt !important;
+    border-collapse: collapse !important;
+  }
+  th, td {
+    border: 1px solid #bbb !important;
+    padding: 4px 8px !important;
+    color: #222 !important;
+    background: white !important;
+    font-size: 11pt !important;
+  }
+
+  /* Éviter les coupures de tableau */
+  table, thead, tbody, tr, td, th {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Supprimer les ombres et arrondis sur le contenu principal */
+  .MuiPaper-root, .MuiCard-root {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+  }
+}
