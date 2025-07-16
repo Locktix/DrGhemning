@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Select, MenuItem, FormControl, Grid, Typography, IconButton, Card, CardContent, Box } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Select, MenuItem, FormControl, Grid, Typography, IconButton, Card, CardContent, Box, CircularProgress } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 import { db } from '../firebase/firebaseConfig';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, collection, onSnapshot } from 'firebase/firestore';
 import NavBar from "./NavBar";
 
-const MEDECINS = ['Honoré', 'Zak', 'Sabine'];
 const CRENEAUX = [
   { label: '08:00 - 09:00', value: '08-09' },
   { label: '09:00 - 10:00', value: '09-10' },
@@ -33,6 +32,17 @@ const BloodTestSchedule = () => {
   const [dates, setDates] = useState(getDatesOfCurrentWeek(getMondayOfWeek(dayjs())));
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
+  const [medecins, setMedecins] = useState([]);
+  const [loadingMedecins, setLoadingMedecins] = useState(true);
+
+  // Charger la liste dynamique des médecins
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "bloodDoctors"), (querySnapshot) => {
+      setMedecins(querySnapshot.docs.map(doc => doc.data().name));
+      setLoadingMedecins(false);
+    });
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     setDates(getDatesOfCurrentWeek(monday));
@@ -88,46 +98,52 @@ const BloodTestSchedule = () => {
                   <ArrowForwardIos />
                 </IconButton>
               </Box>
-              <TableContainer component={Paper} sx={{ borderRadius: 3, boxShadow: 1 }}>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell sx={{ fontWeight: 700, bgcolor: 'grey.100' }}>Heures</TableCell>
-                      {dates.map((date, idx) => (
-                        <TableCell key={idx} align="center" sx={{ fontWeight: 700, bgcolor: 'grey.100' }}>
-                          <div style={{ fontWeight: 'bold' }}>{JOURS[idx]}</div>
-                          <div style={{ fontSize: 13 }}>{date.format('DD/MM')}</div>
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {CRENEAUX.map((creneau) => (
-                      <TableRow key={creneau.value}>
-                        <TableCell sx={{ fontWeight: 600 }}>{creneau.label}</TableCell>
-                        {dates.map((_, jourIdx) => (
-                          <TableCell key={jourIdx} align="center">
-                            <FormControl fullWidth size="small" variant="outlined" sx={{ minWidth: 110 }}>
-                              <Select
-                                value={data[`${jourIdx}-${creneau.value}`] || ''}
-                                onChange={(e) => handleChange(jourIdx, creneau.value, e.target.value)}
-                                displayEmpty
-                                disabled={loading}
-                                sx={{ bgcolor: 'background.default', borderRadius: 2 }}
-                              >
-                                <MenuItem value=""><em>--</em></MenuItem>
-                                {MEDECINS.map((m) => (
-                                  <MenuItem key={m} value={m}>{m}</MenuItem>
-                                ))}
-                              </Select>
-                            </FormControl>
+              {loadingMedecins ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 120 }}>
+                  <CircularProgress color="primary" />
+                </Box>
+              ) : (
+                <TableContainer component={Paper} sx={{ borderRadius: 3, boxShadow: 1 }}>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell sx={{ fontWeight: 700, bgcolor: 'grey.100' }}>Heures</TableCell>
+                        {dates.map((date, idx) => (
+                          <TableCell key={idx} align="center" sx={{ fontWeight: 700, bgcolor: 'grey.100' }}>
+                            <div style={{ fontWeight: 'bold' }}>{JOURS[idx]}</div>
+                            <div style={{ fontSize: 13 }}>{date.format('DD/MM')}</div>
                           </TableCell>
                         ))}
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                      {CRENEAUX.map((creneau) => (
+                        <TableRow key={creneau.value}>
+                          <TableCell sx={{ fontWeight: 600 }}>{creneau.label}</TableCell>
+                          {dates.map((_, jourIdx) => (
+                            <TableCell key={jourIdx} align="center">
+                              <FormControl fullWidth size="small" variant="outlined" sx={{ minWidth: 110 }}>
+                                <Select
+                                  value={data[`${jourIdx}-${creneau.value}`] || ''}
+                                  onChange={(e) => handleChange(jourIdx, creneau.value, e.target.value)}
+                                  displayEmpty
+                                  disabled={loading}
+                                  sx={{ bgcolor: 'background.default', borderRadius: 2 }}
+                                >
+                                  <MenuItem value=""><em>--</em></MenuItem>
+                                  {medecins.map((m) => (
+                                    <MenuItem key={m} value={m}>{m}</MenuItem>
+                                  ))}
+                                </Select>
+                              </FormControl>
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              )}
             </CardContent>
           </Card>
         </Grid>
