@@ -1,6 +1,6 @@
 {
   "name": "DrGhemning",
-  "version": "0.1.4 (17-07-2025)",
+  "version": "0.1.5 (17-07-2025)",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",

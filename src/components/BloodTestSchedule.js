@@ -4,7 +4,7 @@ import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 import { db } from '../firebase/firebaseConfig';
-import { doc, getDoc, setDoc, collection, onSnapshot } from 'firebase/firestore';
+import { doc, setDoc, collection, onSnapshot } from 'firebase/firestore';
 import NavBar from "./NavBar";
 
 const CRENEAUX = [
@@ -44,24 +44,22 @@ const BloodTestSchedule = () => {
     return unsubscribe;
   }, []);
 
+  // Planning en temps réel avec onSnapshot
   useEffect(() => {
     setDates(getDatesOfCurrentWeek(monday));
-    fetchData(monday);
-    // eslint-disable-next-line
-  }, [monday]);
-
-  const fetchData = async (mondayDate) => {
     setLoading(true);
-    const key = mondayDate.format('YYYY-MM-DD');
+    const key = monday.format('YYYY-MM-DD');
     const ref = doc(db, 'bloodSchedules', key);
-    const snap = await getDoc(ref);
-    if (snap.exists()) {
-      setData(snap.data());
-    } else {
-      setData({});
-    }
-    setLoading(false);
-  };
+    const unsubscribe = onSnapshot(ref, (snap) => {
+      if (snap.exists()) {
+        setData(snap.data());
+      } else {
+        setData({});
+      }
+      setLoading(false);
+    });
+    return unsubscribe;
+  }, [monday]);
 
   const handleChange = async (jourIdx, creneau, value) => {
     const newData = { ...data, [`${jourIdx}-${creneau}`]: value };
