@@ -8,9 +8,6 @@ function VaccinsPage() {
     <>
       <NavBar />
       <Container maxWidth="md" sx={{ mt: 8 }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Gestionnaire de vaccins
-        </Typography>
         <VaccinManager />
       </Container>
     </>

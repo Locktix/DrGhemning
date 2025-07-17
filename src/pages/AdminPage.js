@@ -57,9 +57,6 @@ function AdminPage() {
     <>
       <NavBar />
       <Container maxWidth="md" sx={{ mt: 8 }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Administration
-        </Typography>
         <UserManager />
         <Box sx={{
           bgcolor: 'rgba(255,255,255,0.7)',
