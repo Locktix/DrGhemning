@@ -60,7 +60,7 @@ function App() {
           display: 'flex', 
           flexDirection: 'column', 
           minHeight: '100vh' 
-        }} className="app-root">
+        }}>
           <AnimatedRoutes />
           <Footer />
         </Box>

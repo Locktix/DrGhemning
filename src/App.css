@@ -36,36 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-html, body, #root, .app-root {
-  height: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-.app-root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main-content {
-  flex: 1 0 auto;
-}
-
-footer {
-  flex-shrink: 0;
-  margin-top: auto;
-  background: rgba(248,249,250,0.85);
-  color: #888;
-  font-size: 0.85rem;
-  box-shadow: none;
-  border-top: 1px solid #eee;
-  padding: 12px 0 8px 0;
-  opacity: 0.85;
-  transition: opacity 0.2s;
-}
-footer:hover {
-  opacity: 1;
-}
