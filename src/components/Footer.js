@@ -20,25 +20,31 @@ const Footer = () => {
       component="footer"
       sx={{
         mt: 'auto',
-        py: 4,
-        px: { xs: 2, sm: 4 },
-        pt: 6,
-        mt: { xs: 4, sm: 6, md: 8 },
-        borderTop: '1px solid rgba(0,0,0,0.1)',
-        boxShadow: '0 -4px 20px 0 rgba(0,0,0,0.1)',
+        py: 2,
+        px: { xs: 1, sm: 2 },
+        pt: 3,
+        mt: { xs: 2, sm: 3, md: 4 },
+        borderTop: '1px solid #eee',
+        boxShadow: 'none',
+        background: 'rgba(248,249,250,0.85)',
+        fontSize: '0.85rem',
+        color: '#888',
+        opacity: 0.85,
+        transition: 'opacity 0.2s',
+        '&:hover': { opacity: 1 },
       }}
     >
       <Card 
         elevation={0}
         sx={{
-          background: 'rgba(255,255,255,0.8)',
-          borderRadius: 4,
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(255,255,255,0.2)',
-          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
+          background: 'transparent',
+          borderRadius: 3,
+          backdropFilter: 'none',
+          border: 'none',
+          boxShadow: 'none',
         }}
       >
-        <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
+        <CardContent sx={{ p: { xs: 1, sm: 2 } }}>
           <Grid container spacing={3} justifyContent="space-between" alignItems="flex-start">
             {/* Informations principales */}
             <Grid item xs={12} sm={6} md={4}>
