@@ -8,6 +8,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import MenuIcon from '@mui/icons-material/Menu';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 
 function NavBar() {
   const { user, role, logout } = useAuth();
@@ -63,22 +64,24 @@ function NavBar() {
               <IconButton edge="start" color="primary" onClick={handleDrawerOpen} sx={{ mr: 1 }}>
                 <MenuIcon sx={{ fontSize: 32 }} />
               </IconButton>
-              <Typography
-                variant="h6"
-                component={Link}
-                to="/"
-                sx={{
-                  flexGrow: 1,
-                  color: 'primary.main',
-                  textDecoration: 'none',
-                  fontWeight: 700,
-                  letterSpacing: 1.2,
-                  fontSize: 20,
-                  textAlign: 'center',
-                }}
-              >
-                Dr Ghemning
-              </Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, justifyContent: 'center' }}>
+                <LocalHospitalIcon sx={{ color: 'primary.main', mr: 1, fontSize: 24 }} />
+                <Typography
+                  variant="h6"
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: 'primary.main',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    letterSpacing: 1.2,
+                    fontSize: 20,
+                    textAlign: 'center',
+                  }}
+                >
+                  Dr Ghemning
+                </Typography>
+              </Box>
               <Box sx={{ ml: 'auto' }}>
                 <IconButton onClick={handleMenu} color="primary" sx={{ p: 0 }}>
                   <Avatar sx={{ bgcolor: 'primary.main', width: 40, height: 40 }}>
@@ -113,21 +116,23 @@ function NavBar() {
             </>
           ) : (
             <>
-              <Typography
-                variant="h6"
-                component={Link}
-                to="/"
-                sx={{
-                  flexGrow: 1,
-                  color: 'primary.main',
-                  textDecoration: 'none',
-                  fontWeight: 700,
-                  letterSpacing: 1.5,
-                  fontSize: 24
-                }}
-              >
-                Centre médical Dr Ghemning
-              </Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+                <LocalHospitalIcon sx={{ color: 'primary.main', mr: 1, fontSize: 28 }} />
+                <Typography
+                  variant="h6"
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: 'primary.main',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    letterSpacing: 1.5,
+                    fontSize: 24
+                  }}
+                >
+                  Centre médical Dr Ghemning
+                </Typography>
+              </Box>
               {role && ["secrétaire", "médecin", "dev"].includes(role) && (
                 <>
                   <Button
