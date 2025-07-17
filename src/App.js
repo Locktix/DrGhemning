@@ -55,7 +55,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router basename="/DrGhemning">
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
