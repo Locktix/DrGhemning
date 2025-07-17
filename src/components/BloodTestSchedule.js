@@ -6,6 +6,7 @@ import 'dayjs/locale/fr';
 import { db } from '../firebase/firebaseConfig';
 import { doc, setDoc, collection, onSnapshot } from 'firebase/firestore';
 import NavBar from "./NavBar";
+import CustomSnackbar from './CustomSnackbar';
 
 const CRENEAUX = [
   { label: '08:00 - 09:00', value: '08-09' },
@@ -34,6 +35,8 @@ const BloodTestSchedule = () => {
   const [loading, setLoading] = useState(false);
   const [medecins, setMedecins] = useState([]);
   const [loadingMedecins, setLoadingMedecins] = useState(true);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState('');
 
   // Charger la liste dynamique des médecins
   useEffect(() => {
@@ -67,6 +70,12 @@ const BloodTestSchedule = () => {
     const key = monday.format('YYYY-MM-DD');
     const ref = doc(db, 'bloodSchedules', key);
     await setDoc(ref, newData);
+    if (!value) {
+      setSnackbarMsg('Médecin retiré du créneau');
+    } else {
+      setSnackbarMsg('Médecin affecté au créneau');
+    }
+    setSnackbarOpen(true);
   };
 
   const handleWeekChange = (delta) => {
@@ -146,6 +155,12 @@ const BloodTestSchedule = () => {
           </Card>
         </Grid>
       </Grid>
+      <CustomSnackbar
+        open={snackbarOpen}
+        onClose={() => setSnackbarOpen(false)}
+        message={snackbarMsg}
+        severity="success"
+      />
     </>
   );
 };
